@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Data.Entity;
+
+using Welp.Models;
 
 namespace Welp
 {
@@ -12,6 +15,7 @@ namespace Welp
     {
         protected void Application_Start()
         {
+            Database.SetInitializer<WelpContext>(new WelpInitializer());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
